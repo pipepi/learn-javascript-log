@@ -9,10 +9,10 @@
 - setup option
     - 所处组件声明周期
         - 处理props之后
-            - 可接收输入（props，context）
+            - 可接收输入（props，context(attrs,slots,emit)）
         - created之前
             - 返回值在created之后的钩子函数和template中都可见
-            - 组件实例还没有创建，没有this，localstate，computed，watchs可访问
+            - 组件实例还没有创建，没有this，localstate，computed，watchs,metheds可访问
 ## 疑问点
 - 为何需要ref()包装number,string等基本类型
     - js中基本类型，传参是值复制，会丢失vue给值附加的reactive响应绑定
