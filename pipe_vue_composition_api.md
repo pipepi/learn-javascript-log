@@ -1,0 +1,19 @@
+# vue融合api
+## why解决问题
+- 复杂组件中，概念/逻辑上相关的代码分散在不同的部分（methods，props，watchs,computed）
+    - 不易理解
+        - 不易维护
+    - 不利代码级别复用
+        - 组件级别的复用，对于有几百个组件的项目，已经难以维护
+## how解决方案
+- setup option
+    - 所处组件声明周期
+        - 处理props之后
+            - 可接收输入（props，context）
+        - created之前
+            - 返回值在created之后的钩子函数和template中都可见
+            - 组件实例还没有创建，没有this，localstate，computed，watchs可访问
+## 疑问点
+- 为何需要ref()包装number,string等基本类型
+    - js中基本类型，传参是值复制，会丢失vue给值附加的reactive响应绑定
+    - 包装城引用对象后，传递的是地址，内存中还是同一个对象/地址，是同一份，不会丢失reactive响应特性            
